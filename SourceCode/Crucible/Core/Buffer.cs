@@ -159,12 +159,13 @@ public class DefaultBuffer<T> : IDisposable where T : struct
     {
       for (int i = 0; i < TexInfo.MipSliceCount; i++)
       {
-        cmd.CopyTextureRegion(new TextureCopyLocation(Heap, i), 0, 0, 0, new TextureCopyLocation(middleBuffer.Heap, i), null);
+         cmd.CopyTextureRegion(new TextureCopyLocation(Heap, i), 0, 0, 0, new TextureCopyLocation(middleBuffer.Heap, i), null);
       }
     }
     else
     {
-      cmd.CopyBufferRegion(Heap, 0, middleBuffer.Heap, 0, middleBuffer.Size);
+         //cmd.CopyBufferRegion(Heap, 0, middleBuffer.Heap, 0, middleBuffer.Size);
+         cmd.CopyResource(Heap, middleBuffer.Heap);
     }
 
     // After barrier

@@ -103,7 +103,9 @@ public partial class CrucibleEngine
     // Dispose old buffers.
     FrameResource.depthBuffer.Dispose();
     for (int i = 0; i < SwapChainSize; ++i)
-      frames[i].backBuffer.Dispose();
+      {
+         frames[i].backBuffer.Dispose();
+      }
     // Create new buffers.
     swapChain.ResizeBuffers(SwapChainSize, width, height, Format.R8G8B8A8_UNorm, SwapChainFlags.AllowTearing);
     var rtvDesc = new RenderTargetViewDescription { Format = Format.R8G8B8A8_UNorm, Dimension = RenderTargetViewDimension.Texture2D };
@@ -248,7 +250,7 @@ public partial class CrucibleEngine
     // Use barrier to notify that we are using the RenderTarget to clear it
     cmdList.ResourceBarrierTransition(frames[fence.FrameIndex].backBuffer, ResourceStates.Present, ResourceStates.RenderTarget);
 
-    cmdList.ClearRenderTargetView(DescHeapManager.GetCPUHandle(frames[fence.FrameIndex].rtvIndex, ViewType.RTV), Color4.Black);
+    cmdList.ClearRenderTargetView(DescHeapManager.GetCPUHandle(frames[fence.FrameIndex].rtvIndex, ViewType.RTV), AppConstants.CleanColor);
     cmdList.ClearDepthStencilView(DescHeapManager.GetCPUHandle(FrameResource.dsvIndex, ViewType.DSV), ClearFlags.FlagsDepth, 1.0f, 0);
     RenderPassResource.CLeanAll(cmdList);
 

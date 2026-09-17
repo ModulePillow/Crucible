@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace Crucible;
 
-// 2026-9-17: Disable this file.
+// 2026-9-17: Disable this experiment file.
 #if DISABLED
 public class IOTask
 {

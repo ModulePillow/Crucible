@@ -236,7 +236,7 @@ public static class PipelineStateManager
     rootParams.Add(new RootParameter(ShaderVisibility.All, new RootDescriptor(1, 0), RootParameterType.ConstantBufferView));
     if (vsTexCount > 0)
     {
-      for(int i = 0;i < vsTexCount;i++)
+      for(int i = 0;i < vsTexCount; i++)
       {
         // Multiple SRVs in one root table must be continuously, but we want to set each one seperately,
         // Thus we make a root table for each SRV.

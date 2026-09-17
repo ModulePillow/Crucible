@@ -13,7 +13,7 @@ public static class AppConstants
   /// <summary>11_0 feature level in DX12 can support GPU down to GeForce 400 series!</summary>
   public const FeatureLevel DX12FeatureLevel = FeatureLevel.Level_11_0;
 
-  public static readonly Color4 CleanColor = new Color4(0.2f, 0.21f, 0.2f, 0f);
+  public static readonly Color4 CleanColor = new Color4(0.3f, 0.31f, 0.32f, 0f);
 
   // 1 Unit = 1 km
 

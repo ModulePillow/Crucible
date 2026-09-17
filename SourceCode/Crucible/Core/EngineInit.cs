@@ -75,7 +75,7 @@ public partial class CrucibleEngine
       OutputHandle = form.Handle,
       BufferCount = SwapChainSize,
       Usage = Usage.RenderTargetOutput,
-      SwapEffect = SwapEffect.FlipDiscard,
+      SwapEffect = SwapEffect.FlipSequential, // Persist old buffers.
       Flags = SwapChainFlags.AllowTearing,
       SampleDescription = new SampleDescription(1, 0),
       ModeDescription = new ModeDescription(Format.R8G8B8A8_UNorm)
