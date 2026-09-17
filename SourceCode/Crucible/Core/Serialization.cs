@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading;
-
 namespace Crucible;
 
 // 2026-9-17: Disable this experiment file.

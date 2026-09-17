@@ -1,5 +1,3 @@
-using SharpDX;
-
 namespace Crucible;
 
 // 2026-9-17: Disable this experiment file.

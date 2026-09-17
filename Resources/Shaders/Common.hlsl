@@ -1,8 +1,7 @@
 /*
-  This is the common hlsl header.
+  A common hlsl header.
   
-  You can create your own headers,
-  but you could only reference them from relative paths.
+  Use relative paths to include it.
 
   Notice:
   Shader Model = 5.0
