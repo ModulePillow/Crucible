@@ -70,8 +70,24 @@ public static class MeshManager
       {
          vertices[i].position = new Vector3(mesh.Vertices[i].X, mesh.Vertices[i].Y, mesh.Vertices[i].Z);
          vertices[i].position *= factor;
-         vertices[i].normal = mesh.HasNormals ? new Vector3(mesh.Normals[i].X, mesh.Normals[i].Y, mesh.Normals[i].Z) : Vector3.Zero;
-         vertices[i].tangent = mesh.HasTangentBasis ? new Vector3(mesh.Tangents[i].X, mesh.Tangents[i].Y, mesh.Tangents[i].Z) : Vector3.Zero;
+         // Safe normal
+         if(mesh.HasNormals && mesh.Normals[i] != new Vector3D(0, 0, 0))
+         {
+            vertices[i].normal = SharpDX.Vector3.Normalize(new Vector3(mesh.Normals[i].X, mesh.Normals[i].Y, mesh.Normals[i].Z));
+         }
+         else
+         {
+            vertices[i].normal = Vector3.Up;
+         }
+         // Safe tangent
+         if (mesh.HasTangentBasis && mesh.Tangents[i] != new Vector3D(0, 0, 0))
+         {
+            vertices[i].tangent = SharpDX.Vector3.Normalize(new Vector3(mesh.Tangents[i].X, mesh.Tangents[i].Y, mesh.Tangents[i].Z));
+         }
+         else
+         {
+            vertices[i].tangent = Vector3.Right;
+         }
          vertices[i].uv = mesh.HasTextureCoords(0) ? new Vector2(mesh.TextureCoordinateChannels[0][i].X, mesh.TextureCoordinateChannels[0][i].Y) : new Vector2(vertices[i].position.X, -vertices[i].position.Y);
       }
 
