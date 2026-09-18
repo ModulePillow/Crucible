@@ -41,7 +41,7 @@ public sealed class CustomedForm : RenderForm
    public CustomedForm() : base()
    {
       Size = minSize;
-      Text = "DefaultTitle";
+      Text = "Crucible V2";
       MinimumSize = minSize;
       SetWindowMode(false);
    }
